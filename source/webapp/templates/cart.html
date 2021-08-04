@@ -1,0 +1,297 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Корзина{% endblock %}
+{% block styles %}{% endblock %}
+{% block content %}
+    <div class="container my-4 my-sm-5">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <div class="table-products">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item active">Корзина</li>
+                            <li class="breadcrumb-item">Проверка</li>
+                            <li class="breadcrumb-item">Оплата</li>
+                        </ol>
+                    </nav>
+                    <table class="table-base table table-hover mt-4 mt-sm-5">
+                        <thead class="">
+                        <tr class="table-header">
+                            <th class="none-top-border" scope="col"></th>
+                            <th class="none-top-border tovar" scope="col">Товар</th>
+                            <th class="none-top-border"></th>
+                            <th class="none-top-border" scope="col">Цена</th>
+                            <th class="none-top-border" scope="col">Количество</th>
+                            <th class="none-top-border" scope="col">Итого</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in cart %}
+                            <tr class="product-{{ item.product.pk }}">
+                                <td class="table-first-column">
+                                    <div class="delete-from-cart"
+                                         data="{{ item.product.pk }}">
+                                    </div>
+                                </td>
+                                <td class="table-second-column">
+                                    <div class="photo-back-table">
+                                        {% if item.product.images %}
+                                            <img src="{{ item.product.images.first.image.url }}"
+                                                 class="product-photo card-img-top"
+                                                 alt="...">
+                                        {% else %}
+                                            <img src="{% static "images/no_photo.jpg" %}"
+                                                 class="product-photo card-img-top" alt="...">
+                                        {% endif %}
+                                    </div>
+                                </td>
+                                <td class="table-products-name table-for-vertical">
+                                    {{ item.product.name }}
+                                    <div class="delete-from-cart d-inline-block d-sm-none"></div>
+                                </td>
+                                <td class="table-price table-for-vertical">
+                                    <p class="d-inline-block d-sm-none">Цена</p>
+                                    {% if item.product.discounted_price %}
+                                        <div class="price-{{ item.product.pk }}">
+                                            <strike>{{ item.product.price }}</strike>
+                                        </div>
+                                        <div class="price-{{ item.product.pk }}">
+                                            {{ item.product.discounted_price }}
+                                        </div>
+                                    {% else %}
+                                        <div class="price-{{ item.product.pk }}">
+                                            {{ item.product.price }}
+                                        </div>
+                                    {% endif %}
+                                </td>
+                                <td class="table-quantity table-for-vertical">
+                                    <p class="d-inline-block d-sm-none">Количество</p>
+                                    <div class="input-number">
+                                        <div class="input-number__minus cartdelete" href="" id="cart-delete-{{ item.product.pk }}"
+                                             data-product-pk="{{ item.product.pk }}">-
+                                            {#                                            <a href="{% url "webapp:cartdeleteitem" %}" id="cart-delete-{{ item.product.pk }}"#}
+                                            {#                               data-product-pk="{{ item.product.pk }}"#}
+                                            {#                               class="">-</a>#}
+                                            {#                                            <a href="{% url 'webapp:cart_change' %}?pk={{ item.product.pk }}&action=remove&next={% url 'webapp:cart' %}">-</a>#}
+                                        </div>
+                                        <input class="input-number__input" type="text" pattern="^[0-9]+$"
+                                               id="gty-{{ item.product.pk }}"
+                                               value="{{ item.qty }}">
+                                        <div class="input-number__plus cartadd" href="" id="cart-add-{{ item.product.pk }}"
+                                             data-product-pk="{{ item.product.pk }}">
+                                            {#                                            <a href="{% url "webapp:cartadditem" %}" id="cart-add-{{ item.product.pk }}"#}
+                                            {#                               data-product-pk="{{ item.product.pk }}"#}
+                                            {#                               class="">+</a>#}+
+                                            {#                                            <a href="{% url 'webapp:cart_change' %}?pk={{ item.product.pk }}&action=add&next={% url 'webapp:cart' %}">+</a>#}
+                                        </div>
+
+                                    </div>
+                                </td>
+                                <td class="product-summ table-for-vertical"><p class="d-inline-block d-sm-none">
+                                    Итого</p>
+                                    {#                                    <input class="" type="text" id="total-{{ item.product.pk }}"#}
+                                    {#                                               value="{{ item.total }}">#}
+                                    <div class="total-{{ item.product.pk }}">{{ item.total }}</div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="cart-summ">
+                    <h3 class="cart-summ-header">Общая корзина</h3>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th class="none-top-border cart-summ-itog-header" scope="row">Сумма</th>
+                            <td class="none-top-border cart-summ-itog">
+                                <div class="cart-total">
+                                    {{ cart_total }}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="cart-summ-itog-header" scope="row">Доставка</th>
+                            <td class="cart-summ-delivery">
+                            </td>
+                            {% if shipping_message %}
+                                <p style="color: red">shipping_message</p>
+                            {% endif %}
+
+                        </tr>
+                        <tr>
+                            <th class="none-top-border cart-summ-itog-header" scope="row">
+                                <select name="shipping_district" class="form-control" required="" id="id_shipping_district" form="MainForm">
+                                    <option value=0 selected="">Выберите район доставки</option>
+                                    {% for delivery in deliveries %}
+                                        <option value={{ delivery.price }}>{{ delivery.district }}</option>
+                                    {% endfor %}
+                                </select>
+                            </th>
+                            <td class="none-top-border cart-summ-itog">
+                                <div class="delivery-value">
+                                    ---</div>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th class="cart-summ-itogo-header" scope="row">Итого</th>
+                            <td class="cart-summ-itogo">
+                                <div class="cart-total-delivery">
+                                    {{ cart_total }}</div>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                    {% if cart %}
+                        <p class="text-center">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#orderModal">
+                                Сделать заказ
+                            </button>
+                        </p>
+                        <form action="{% url "webapp:cart" %}" method="POST" id="MainForm">
+                            <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Сделать заказ</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            {% include 'partial/form.html' %}
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                                            <button type="submit" class="btn btn-primary">Заказать!</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    {% endif %}
+                    {#                    <a href="url 'webapp:check_cart'" class="to-cart btn btn-success mt-0 ml-4 w-75">Пройти#}
+                    {#                        проверку</a>#}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{#    {% if basket %}#}
+{#        <p class="text-center">#}
+{#            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderModal">#}
+{#                Сделать заказ#}
+{#            </button>#}
+{#        </p>#}
+{#        <form action="{% url "webapp:basket" %}" method="POST">#}
+{#            <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel"#}
+{#                 aria-hidden="true">#}
+{#                <div class="modal-dialog" role="document">#}
+{#                    <div class="modal-content">#}
+{#                        <div class="modal-header">#}
+{#                            <h5 class="modal-title" id="orderModalLabel">Сделать заказ</h5>#}
+{#                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
+{#                                <span aria-hidden="true">&times;</span>#}
+{#                            </button>#}
+{#                        </div>#}
+{#                        <div class="modal-body">#}
+{#                            {% include 'partial/form.html' %}#}
+{#                        </div>#}
+{#                        <div class="modal-footer">#}
+{#                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>#}
+{#                            <button type="submit" class="btn btn-primary">Заказать!</button>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </form>#}
+{#    {% endif %}#}
+{##}
+{#{% endblock %}#}
+{#{% block scripts %}{% endblock %}#}
+{##}
+
+
+{#    <h1 class="text-center">Корзина</h1>#}
+{#    <table class="table table-striped">#}
+{#        <thead>#}
+{#        <tr>#}
+{#            <th scope="col">Товар</th>#}
+{#            <th scope="col">Цена</th>#}
+{#            <th scope="col">Количество</th>#}
+{#            <th scope="col">Итого</th>#}
+{#            <th colspan="2">Действия</th>#}
+{#        </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#        {% for item in cart %}#}
+{#            <tr>#}
+{#                <td><a href="{% url 'webapp:product_detail' item.product.pk %}">{{ item.product.name }}</a></td>#}
+{#                <td>{{ item.product.price }}</td>#}
+{#                <td>{{ item.qty }}</td>#}
+{#                <td>{{ item.total }}</td>#}
+{#                <td>#}
+{#                    <a href="{% url 'webapp:cart_change' %}?pk={{ item.product.pk }}&action=add&next={% url 'webapp:cart' %}">Больше</a>#}
+{#                </td>#}
+{#                <td>#}
+{#                    <a href="{% url 'webapp:cart_change' %}?pk={{ item.product.pk }}&action=remove&next={% url 'webapp:cart' %}">Меньше</a>#}
+{#                </td>#}
+{#            </tr>#}
+{#        {% endfor %}#}
+{#        </tbody>#}
+{#        <tfoot>#}
+{#        <tr>#}
+{#            <th colspan="3">Итого:</th>#}
+{#            <td colspan="3">{{ basket_total }}</td>#}
+{#        </tr>#}
+{#        </tfoot>#}
+{#    </table>#}
+{##}
+{#    {% if basket %}#}
+{#        <p class="text-center">#}
+{#            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderModal">#}
+{#                Сделать заказ#}
+{#            </button>#}
+{#        </p>#}
+{#        <form action="{% url "webapp:basket" %}" method="POST">#}
+{#            <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel"#}
+{#                 aria-hidden="true">#}
+{#                <div class="modal-dialog" role="document">#}
+{#                    <div class="modal-content">#}
+{#                        <div class="modal-header">#}
+{#                            <h5 class="modal-title" id="orderModalLabel">Сделать заказ</h5>#}
+{#                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
+{#                                <span aria-hidden="true">&times;</span>#}
+{#                            </button>#}
+{#                        </div>#}
+{#                        <div class="modal-body">#}
+{#                            {% include 'partial/form.html' %}#}
+{#                        </div>#}
+{#                        <div class="modal-footer">#}
+{#                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>#}
+{#                            <button type="submit" class="btn btn-primary">Заказать!</button>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </form>#}
+{#    {% endif %}#}
+
+
+{#{% block scripts %}#}
+{#    {% if basket and form.errors %}#}
+{#        <script type="application/javascript">#}
+{#            $(window).on('load', function(){#}
+{#                $('#orderModal').modal('show');#}
+{#            });#}
+{#        </script>#}
+{#    {% endif %}#}
+{#{% endblock %}#}
+{% block scripts %}
+    <script type="application/javascript" src="{% static "js/cart.js" %}"></script>
+    {#        <script type="application/javascript" src="{% static "js/cart_ajax.js" %}"></script>#}
+{% endblock %}

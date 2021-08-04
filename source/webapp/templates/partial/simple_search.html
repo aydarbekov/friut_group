@@ -1,0 +1,19 @@
+<form class="form-inline d-none d-md-flex align-items-center" method="get" action=""> {# {% url "webapp:search_results" %} #}
+    {% for error in search_form.non_field_errors %}
+            <p class="form-error">{{ error }}</p>
+        {% endfor %}
+        {% for field in search_form %}
+            {% if field.label == 'Поиск' %}
+                <input class="search form-control rounded-left" id="id_text" type="text" name="text" placeholder="Поиск" aria-label="Search">
+            {% endif %}
+{#            {% if field.label == 'Категория' %}#}
+{#                <p class="m-0">#}
+{#                {{ field }}#}
+{#                </p>#}
+{#            {% endif %}#}
+        {% endfor %}
+{% for error in field.errors %}
+    <p class="text-danger">{{ error }}</p>
+{% endfor %}
+    <button class="search-button btn my-2 my-sm-0 rounded-right" type="submit"><i class="fas fa-search"></i></button>
+</form>

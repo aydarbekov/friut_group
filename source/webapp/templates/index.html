@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}FrutGroup{% endblock %}
+{% block menu %}
+{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css'%}"/>
+{% endblock %}
+{% block content %}
+    <div class="container category-navbar">
+        <div class="horizontal-menu d-flex">
+            <a class="to-main-btn" href="/"></a>
+            <div class="horizontal-category d-flex justify-content-around align-items-center">
+                {% for category in hor_categories %}
+                    <a class="categories" href="{% url 'webapp:category' category.slug %}">{{ category.name }}</a>
+                {% endfor %}
+            </div>
+            <a class="cart" href="{% url 'webapp:cart' %}">
+                <div class="count">{{ products_count }}</div>
+            </a>
+        </div>
+    </div>
+    <div class="categories-main-pic d-flex flex-column flex-md-row container mt-3">
+        <div class="vertical-menu-container col-12 col-md-3 me-md-3 mb-2 mb-md-0">
+            <div class="vertial-menu d-flex flex-column mt-2 mb-2 mt-md-3 mb-md-0">
+                {% for category in ver_categories %}
+                    <a class="categories btn d-none d-md-block" href="{% url 'webapp:category' category.slug %}">{{ category.name }}</a>
+                {% endfor %}
+                <a class="categories btn d-md-none" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Все категории
+                </a>
+                <div class="collapse d-md-none" id="collapseExample">
+                    <div class="card card-body">
+                        {% for category in ver_categories %}
+                            <a class="categories btn d-block d-md-none" href="#">{{ category.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-pic-div ms-md-3">
+            <div class="main-pic col-12 col-md-9">
+
+            </div>
+        </div>
+
+    </div>
+    <div class="container mt-4">
+        <div class="products-list pb-3">
+            <div class="product-list-title-div" style="border-bottom: #EB8836 solid 3px;">
+                <span class="product-list-title" style="background-color: #EB8836">
+                    Популярное
+                </span>
+            </div>
+            <div class="products-slider mt-3">
+                <div class="products-cards">
+                    {% for product in populars %}
+                        <div class="card .h-100 d-flex flex-column" style="width: 18rem;">
+                            <div class="foto-block">
+                                <img src="{{ product.images.first.image.url }}" class="card-img-top" alt="Фото товара">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                {% if product.discounted_price %}
+                                    <p class="card-price discount-old-price"><strike>{{ product.price }} руб.</strike></p>
+                                    <p class="card-price discount-new-price">{{ product.discounted_price }} руб.</p>
+                                {% else %}
+                                    <p class="card-price">{{ product.price }} руб.</p>
+                                {% endif %}
+                                <div class="cart-item-quantity d-flex justify-content-center" id="product-quantity">
+                                    <div class="minus-quantity">
+                                        <button><i class="fas fa-minus" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="quantity">1</div>
+                                    <div class="plus-quantity">
+                                        <button><i class="fas fa-plus" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                                <button data="{{ product.pk }}" class="to-cart-btn btn btn-primary">В корзину</button>
+                            </div>
+                            {% if product.discount %}
+                                <div class="discount-in-top">
+                                    -{{ product.discount }}%
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="products-list pb-3">
+            <div class="product-list-title-div" style="border-bottom: #B40101 solid 3px;">
+                <span class="product-list-title" style="background-color: #B40101">
+                    Акционные товары
+                </span>
+            </div>
+            <div class="products-slider mt-3">
+                <div class="products-cards">
+                    {% for product in promos %}
+                        <div class="card .h-100 d-flex flex-column" style="width: 18rem;">
+                            <div class="foto-block">
+                                <img src="{{ product.images.first.image.url }}" class="card-img-top" alt="Фото товара">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                {% if product.discounted_price %}
+                                    <p class="card-price discount-old-price"><strike>{{ product.price }} руб.</strike></p>
+                                    <p class="card-price discount-new-price">{{ product.discounted_price }} руб.</p>
+                                {% else %}
+                                    <p class="card-price">{{ product.price }} руб.</p>
+                                {% endif %}
+                                <div class="cart-item-quantity d-flex justify-content-center" id="product-quantity">
+                                    <div class="minus-quantity">
+                                        <button><i class="fas fa-minus" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="quantity">1</div>
+                                    <div class="plus-quantity">
+                                        <button><i class="fas fa-plus" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                                <button data="{{ product.pk }}" class="to-cart-btn btn btn-primary">В корзину</button>
+                            </div>
+                            {% if product.discount %}
+                                <div class="discount-in-top">
+                                    -{{ product.discount }}%
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="products-list pb-3">
+            <div class="product-list-title-div" style="border-bottom: #7EB64B solid 3px;">
+                <span class="product-list-title" style="background-color: #7EB64B">
+                    Новые поступления
+                </span>
+            </div>
+            <div class="products-slider mt-3">
+                <div class="products-cards">
+                    {% for product in lasts %}
+                        <div class="card .h-100 d-flex flex-column" style="width: 18rem;">
+                            <div class="foto-block">
+                                <img src="{{ product.images.first.image.url }}" class="card-img-top" alt="Фото товара">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                {% if product.discounted_price %}
+                                    <p class="card-price discount-old-price"><strike>{{ product.price }} руб.</strike></p>
+                                    <p class="card-price discount-new-price">{{ product.discounted_price }} руб.</p>
+                                {% else %}
+                                    <p class="card-price">{{ product.price }} руб.</p>
+                                {% endif %}
+                                <div class="cart-item-quantity d-flex justify-content-center" id="product-quantity">
+                                    <div class="minus-quantity">
+                                        <button><i class="fas fa-minus" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="quantity">1</div>
+                                    <div class="plus-quantity">
+                                        <button><i class="fas fa-plus" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                                <button data="{{ product.pk }}" class="to-cart-btn btn btn-primary">В корзину</button>
+                            </div>
+                            {% if product.discount %}
+                                <div class="discount-in-top">
+                                    -{{ product.discount }}%
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript" src="{% static 'slick/slick.min.js' %}"></script>
+    <script type="application/javascript" src="{% static "js/index.js" %}"></script>
+{% endblock %}

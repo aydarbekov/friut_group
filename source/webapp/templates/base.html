@@ -1,0 +1,132 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}FrutGroup{% endblock %}</title>
+{#    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">#}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    {#    <link rel="stylesheet" href="{% static "css/jquery-ui.min.css" %}">#}
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    {#    <link rel="stylesheet" href="{% static "css/star.css" %}">#}
+    <link rel="shortcut icon" href="{% static 'images/logos/logo-no-text.png' %}" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">    {% block styles %}{% endblock %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+<body>
+{#<div class="empty-collapse"><i class="fas fa-times"></i></div>#}
+<header>
+    <div class="headline">
+        <ul class="d-flex container justify-content-center align-items-center h-100">
+            <li><a href="#">Доставка и оплата</a></li>
+            <li><a href="#">Акции</a></li>
+            <li><a href="#">О компании</a></li>
+            <li><a href="#">Наши сертификаты</a></li>
+        </ul>
+    </div>
+    <div class="main-header">
+        <div class="container d-flex h-100 align-items-center">
+            <div class="left-header-content">
+                <div class="telephone">+7 (495) 123-45-67</div>
+                <div class="email">info@frut-on-line.ru</div>
+                <div class="graphik">ПН-ВС 9:00-19:00</div>
+                <button class="call-btn btn btn-success">Позвонить</button>
+            </div>
+            <div class="main-logo"></div>
+            <div class="right-header-content flex-column">
+                <div class="social-links flex-column">
+                    <span>Будьте с нами!</span>
+                    <div class="social-icons d-flex justify-content-between">
+                        <a href="#"><div class="instagram"></div></a>
+                        <a href="#"><div class="telegram"></div></a>
+                        <a href="#"><div class="whatsapp"></div></a>
+                        <a href="#"><div class="facebook"></div></a>
+                    </div>
+                </div>
+                <div class="search-line">
+                    <div class="search">
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
+                            <button class="btn" type="submit"></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="content">
+    {% include "partial/messages.html" %}
+    {% block content %}{% endblock %}
+</div>
+
+<footer>
+    <div class="container d-flex flex-column flex-md-row justify-content-around align-items-center">
+        <div class="logo-descr"></div>
+        <div class="catalog-info d-flex">
+            <div class="catalog">
+                <ul>
+                    <li class="title">Каталог товаров</li>
+                    <li>Овощи</li>
+                    <li>Фрукты</li>
+                    <li>Зелень и салаты</li>
+                    <li>Сухофрукты</li>
+                </ul>
+            </div>
+            <div class="info">
+                <ul>
+                    <li class="title">Информация</li>
+                    <li>Доставка и оплата</li>
+                    <li>Наши сертификаты</li>
+                    <li>О компании</li>
+                    <li>Тех поддержка</li>
+                </ul>
+            </div>
+        </div>
+        <div class="social">
+            <div class="social-links flex-column">
+                <span>Будьте с нами!</span>
+                <div class="social-icons d-flex justify-content-between">
+                    <a href="#"><div class="instagram"></div></a>
+                    <a href="#"><div class="telegram"></div></a>
+                    <a href="#"><div class="whatsapp"></div></a>
+                    <a href="#"><div class="facebook"></div></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+{#<script type="application/javascript" src="{% static "js/jquery-3.5.1.js" %}"></script>#}
+{#<script type="application/javascript" src="{% static "js/jquery.min.js" %}"></script>#}
+{#<script type="text/javascript" src='{% static "js/jquery-ui.min.js" %}'></script>#}
+{#<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"#}
+{#        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"#}
+{#        crossorigin="anonymous"></script>#}
+{#<script type="application/javascript" src="{% static "js/bootstrap.js" %}"></script>#}
+{#<script type="application/javascript" src="{% static "js/fontawsome.js" %}"></script>#}
+{#<script type="text/javascript" src="{% static "js/slick.min.js" %}"></script>#}
+{#<script type="application/javascript" src="{% static "js/base.js" %}"></script>#}
+{#<script type="application/javascript" src="{% static "js/review.js" %}"></script>#}
+{#<script type="application/javascript" src="{% static "js/favorite.js" %}"></script>#}
+{#<script type="application/javascript" src="{% static "js/compare_ajax.js" %}"></script>#}
+{#<script type="application/javascript" src="{% static "js/cart_ajax.js" %}"></script>#}
+{#<script type="application/javascript" src="{% static "js/offer.js" %}"></script>#}
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+{#<script src="{% static "js/jquery-3.6.0.js" %}"></script>#}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script src="{% static "js/main.js" %}"></script>
+
+{% block scripts %}{% endblock %}
+</body>
+</html>
