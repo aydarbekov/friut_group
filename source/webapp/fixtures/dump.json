@@ -1,10 +1,1374 @@
 [
 {
+  "model": "webapp.category",
+  "pk": 1,
+  "fields": {
+    "name": "Фрукты",
+    "is_active": true,
+    "parent": null,
+    "slug": "fruktyi",
+    "created_at": "2021-07-18T15:02:20.067Z",
+    "updated_at": "2021-07-18T15:02:20.068Z",
+    "image": "",
+    "lft": 1,
+    "rght": 2,
+    "tree_id": 9,
+    "level": 0
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 2,
+  "fields": {
+    "name": "Овощи",
+    "is_active": true,
+    "parent": null,
+    "slug": "ovoschi",
+    "created_at": "2021-07-18T15:02:37.839Z",
+    "updated_at": "2021-07-19T18:03:46.651Z",
+    "image": "category_images/fruechte-und-gemuese-social_p39232.jpg",
+    "lft": 1,
+    "rght": 2,
+    "tree_id": 4,
+    "level": 0
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 3,
+  "fields": {
+    "name": "Ягоды",
+    "is_active": true,
+    "parent": null,
+    "slug": "yagodyi",
+    "created_at": "2021-07-18T15:02:50.868Z",
+    "updated_at": "2021-07-18T15:02:50.868Z",
+    "image": "",
+    "lft": 1,
+    "rght": 2,
+    "tree_id": 11,
+    "level": 0
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 4,
+  "fields": {
+    "name": "Фруктовая корзина",
+    "is_active": true,
+    "parent": null,
+    "slug": "fruktovaya-korzina",
+    "created_at": "2021-07-18T15:03:00.745Z",
+    "updated_at": "2021-07-18T15:03:00.745Z",
+    "image": "",
+    "lft": 1,
+    "rght": 2,
+    "tree_id": 8,
+    "level": 0
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 5,
+  "fields": {
+    "name": "Экзотика",
+    "is_active": true,
+    "parent": null,
+    "slug": "ekzotika",
+    "created_at": "2021-07-18T15:03:05.749Z",
+    "updated_at": "2021-07-18T15:03:05.749Z",
+    "image": "",
+    "lft": 1,
+    "rght": 2,
+    "tree_id": 10,
+    "level": 0
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 6,
+  "fields": {
+    "name": "Сухофрукты",
+    "is_active": true,
+    "parent": null,
+    "slug": "suhofruktyi",
+    "created_at": "2021-07-18T15:03:19.758Z",
+    "updated_at": "2021-07-18T15:03:19.758Z",
+    "image": "",
+    "lft": 1,
+    "rght": 2,
+    "tree_id": 7,
+    "level": 0
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 7,
+  "fields": {
+    "name": "Соленья",
+    "is_active": true,
+    "parent": null,
+    "slug": "solenya",
+    "created_at": "2021-07-18T15:03:23.855Z",
+    "updated_at": "2021-07-18T15:03:23.855Z",
+    "image": "",
+    "lft": 1,
+    "rght": 2,
+    "tree_id": 5,
+    "level": 0
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 8,
+  "fields": {
+    "name": "Заморозка",
+    "is_active": true,
+    "parent": null,
+    "slug": "zamorozka",
+    "created_at": "2021-07-18T15:03:35.118Z",
+    "updated_at": "2021-07-18T15:03:35.118Z",
+    "image": "",
+    "lft": 1,
+    "rght": 2,
+    "tree_id": 2,
+    "level": 0
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 9,
+  "fields": {
+    "name": "Грибы",
+    "is_active": true,
+    "parent": null,
+    "slug": "gribyi",
+    "created_at": "2021-07-18T15:03:45.127Z",
+    "updated_at": "2021-07-18T15:03:45.127Z",
+    "image": "",
+    "lft": 1,
+    "rght": 8,
+    "tree_id": 1,
+    "level": 0
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 10,
+  "fields": {
+    "name": "Зелень и салаты",
+    "is_active": true,
+    "parent": null,
+    "slug": "zelen-i-salatyi",
+    "created_at": "2021-07-18T15:03:52.297Z",
+    "updated_at": "2021-07-18T15:03:52.297Z",
+    "image": "",
+    "lft": 1,
+    "rght": 2,
+    "tree_id": 3,
+    "level": 0
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 11,
+  "fields": {
+    "name": "Специи",
+    "is_active": true,
+    "parent": null,
+    "slug": "spetsii",
+    "created_at": "2021-07-18T15:03:58.760Z",
+    "updated_at": "2021-07-18T15:03:58.760Z",
+    "image": "",
+    "lft": 1,
+    "rght": 2,
+    "tree_id": 6,
+    "level": 0
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 12,
+  "fields": {
+    "name": "Подгрибы",
+    "is_active": true,
+    "parent": 9,
+    "slug": "podgribyi",
+    "created_at": "2021-07-19T18:25:15.194Z",
+    "updated_at": "2021-07-19T18:25:15.194Z",
+    "image": "",
+    "lft": 4,
+    "rght": 7,
+    "tree_id": 1,
+    "level": 1
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 13,
+  "fields": {
+    "name": "Подподгрибы",
+    "is_active": true,
+    "parent": 12,
+    "slug": "podpodgribyi",
+    "created_at": "2021-07-19T18:26:02.280Z",
+    "updated_at": "2021-07-19T18:26:02.280Z",
+    "image": "",
+    "lft": 5,
+    "rght": 6,
+    "tree_id": 1,
+    "level": 2
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 14,
+  "fields": {
+    "name": "asdasd",
+    "is_active": true,
+    "parent": 9,
+    "slug": "asdasd",
+    "created_at": "2021-07-27T18:46:43.413Z",
+    "updated_at": "2021-07-27T18:46:43.413Z",
+    "image": "",
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 1,
+    "level": 1
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 1,
+  "fields": {
+    "name": "Картофель - Пикассо (Кыргызстан)",
+    "description": "Клубень достаточно крупный (около 100 — 120 грамм), с ровной поверхностью. Крахмалистость сравнительно невысокая для картофеля позднего сорта созревания — 10 — 12%. При приготовлении картошка не разваривается. Клубнеплод подходит для приготовления всех видов кулинарных блюд и имеет приятный хороший вкус.\r\nСорт Пикассо совсем неприхотлив, хорошо переносит засуху и жару, но требует хорошего удобрения, в противном случае вкусовые качества со временем вырождаются. Перед посадкой не требуется проращивание, но рекомендуется для ускорения созревания. Высадку нужно совершать с расстоянием в 40 — 50 см между кустами, это обусловлено раскидистой ботвой растения. Если посадка будет более частой, то клубни выкорчевываются и зеленеют. Соблюдая такие нехитрые правила выращивания можно достичь хороших урожаев — порядка 17 — 19 клубней с куста.",
+    "category": 2,
+    "is_active": true,
+    "price": "35",
+    "discount": null,
+    "discounted_price": null,
+    "in_stock": true,
+    "quantity": 2000,
+    "date": "2021-07-18T15:40:51.120Z",
+    "offer": false,
+    "slug": "kartofel-pikasso-kyirgyizstan",
+    "created_at": "2021-07-18T15:40:51.120Z",
+    "updated_at": "2021-07-18T15:40:51.120Z",
+    "count_sold": 5
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 2,
+  "fields": {
+    "name": "Яблоко Превосходный (Польша)",
+    "description": "“Превосходный” сорт отличает зимостойкость, исключительно нарядная окраска плодов, очень нежная кожа и ароматно-кисловатая нежная мякоть. Важно отметить, что иссык-кульские яблоки подобной разновидности обладают высокой урожайностью, и что самое главное неповторимым терпким вкусом. Эти фрукты растут в высокогорных садах и орошаются чистейшей горной водой.Обычно яблоки  сорта “Превосходный”средней величины, но при благоприятных условиях достигают 250 грамм. Созревают к началу сентября и могут храниться практически до июня.",
+    "category": 1,
+    "is_active": true,
+    "price": "130",
+    "discount": null,
+    "discounted_price": null,
+    "in_stock": true,
+    "quantity": null,
+    "date": "2021-07-18T17:59:10.100Z",
+    "offer": false,
+    "slug": "yabloko-prevoshodnyij-polsha",
+    "created_at": "2021-07-18T17:59:10.100Z",
+    "updated_at": "2021-07-18T17:59:10.100Z",
+    "count_sold": 3
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 3,
+  "fields": {
+    "name": "Банан",
+    "description": "травянистое растение (не пальма, как многие думают) высотой до 9 метров. Зрелые плоды желтые, вытянутые и цилиндрические, напоминают полумесяц. Покрыты плотной кожурой, слегка маслянистой текстуры. Мякоть имеет нежно молочный цвет",
+    "category": 1,
+    "is_active": true,
+    "price": "100",
+    "discount": 0,
+    "discounted_price": null,
+    "in_stock": true,
+    "quantity": 15,
+    "date": "2021-07-18T18:15:35.523Z",
+    "offer": false,
+    "slug": "banan",
+    "created_at": "2021-07-18T18:15:35.523Z",
+    "updated_at": "2021-07-18T19:50:35.271Z",
+    "count_sold": 20
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 4,
+  "fields": {
+    "name": "Капуста",
+    "description": "Капуста мапуста",
+    "category": 2,
+    "is_active": true,
+    "price": "50",
+    "discount": 10,
+    "discounted_price": "45",
+    "in_stock": true,
+    "quantity": null,
+    "date": "2021-07-18T19:53:16.356Z",
+    "offer": false,
+    "slug": "kapusta",
+    "created_at": "2021-07-18T19:53:16.356Z",
+    "updated_at": "2021-07-18T19:53:16.356Z",
+    "count_sold": 0
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 5,
+  "fields": {
+    "name": "Огурец",
+    "description": "Огурец могурец",
+    "category": 2,
+    "is_active": true,
+    "price": "45",
+    "discount": 11,
+    "discounted_price": "40",
+    "in_stock": true,
+    "quantity": null,
+    "date": "2021-07-18T19:53:58.592Z",
+    "offer": false,
+    "slug": "ogurets",
+    "created_at": "2021-07-18T19:53:58.592Z",
+    "updated_at": "2021-07-18T20:01:39.194Z",
+    "count_sold": 0
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 6,
+  "fields": {
+    "name": "Брокколи",
+    "description": "Брокколи проколли",
+    "category": 2,
+    "is_active": true,
+    "price": "120",
+    "discount": null,
+    "discounted_price": null,
+    "in_stock": true,
+    "quantity": null,
+    "date": "2021-07-18T19:54:26.555Z",
+    "offer": false,
+    "slug": "brokkoli",
+    "created_at": "2021-07-18T19:54:26.555Z",
+    "updated_at": "2021-07-18T19:54:26.555Z",
+    "count_sold": 0
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 7,
+  "fields": {
+    "name": "Персик",
+    "description": "Персик шмерсик",
+    "category": 1,
+    "is_active": true,
+    "price": "150",
+    "discount": null,
+    "discounted_price": null,
+    "in_stock": true,
+    "quantity": null,
+    "date": "2021-07-18T19:54:55.068Z",
+    "offer": false,
+    "slug": "persik",
+    "created_at": "2021-07-18T19:54:55.068Z",
+    "updated_at": "2021-07-18T19:55:38.774Z",
+    "count_sold": 0
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 8,
+  "fields": {
+    "name": "Вешенки",
+    "description": "Грибы вешенки",
+    "category": 9,
+    "is_active": true,
+    "price": "100",
+    "discount": 1,
+    "discounted_price": "99",
+    "in_stock": true,
+    "quantity": null,
+    "date": "2021-07-20T13:27:58.193Z",
+    "offer": false,
+    "slug": "veshenki",
+    "created_at": "2021-07-20T13:27:58.193Z",
+    "updated_at": "2021-07-20T13:27:58.193Z",
+    "count_sold": 0
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 9,
+  "fields": {
+    "name": "Шампиньоны",
+    "description": "Грибы шапиньоны",
+    "category": 12,
+    "is_active": true,
+    "price": "150",
+    "discount": 3,
+    "discounted_price": "146",
+    "in_stock": true,
+    "quantity": null,
+    "date": "2021-07-20T13:28:39.656Z",
+    "offer": false,
+    "slug": "shampinonyi",
+    "created_at": "2021-07-20T13:28:39.656Z",
+    "updated_at": "2021-07-20T13:29:42.526Z",
+    "count_sold": 0
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 10,
+  "fields": {
+    "name": "Грибы ширбы",
+    "description": "ГРииибы мрииибы",
+    "category": 13,
+    "is_active": true,
+    "price": "200",
+    "discount": null,
+    "discounted_price": null,
+    "in_stock": true,
+    "quantity": null,
+    "date": "2021-07-20T13:29:33.616Z",
+    "offer": false,
+    "slug": "gribyi-shirbyi",
+    "created_at": "2021-07-20T13:29:33.616Z",
+    "updated_at": "2021-07-20T13:29:33.616Z",
+    "count_sold": 0
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 11,
+  "fields": {
+    "name": "Овощь1 мовощь",
+    "description": "вфафывав фыва фыв афвыа фывафвафвафы фвафвыа",
+    "category": 2,
+    "is_active": true,
+    "price": "1000",
+    "discount": null,
+    "discounted_price": null,
+    "in_stock": true,
+    "quantity": null,
+    "date": "2021-07-20T14:24:32.338Z",
+    "offer": false,
+    "slug": "ovosch1-movosch",
+    "created_at": "2021-07-20T14:24:32.338Z",
+    "updated_at": "2021-07-20T14:24:32.338Z",
+    "count_sold": 0
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 12,
+  "fields": {
+    "name": "Овощь 2",
+    "description": "",
+    "category": 2,
+    "is_active": true,
+    "price": "150",
+    "discount": null,
+    "discounted_price": null,
+    "in_stock": true,
+    "quantity": null,
+    "date": "2021-07-20T14:24:50.655Z",
+    "offer": false,
+    "slug": "ovosch-2",
+    "created_at": "2021-07-20T14:24:50.655Z",
+    "updated_at": "2021-07-20T14:24:50.655Z",
+    "count_sold": 0
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 13,
+  "fields": {
+    "name": "Овощь 3",
+    "description": "",
+    "category": 2,
+    "is_active": true,
+    "price": "1130",
+    "discount": null,
+    "discounted_price": null,
+    "in_stock": true,
+    "quantity": null,
+    "date": "2021-07-20T14:25:16.002Z",
+    "offer": false,
+    "slug": "ovosch-3",
+    "created_at": "2021-07-20T14:25:16.002Z",
+    "updated_at": "2021-07-20T14:25:16.002Z",
+    "count_sold": 0
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 14,
+  "fields": {
+    "name": "Овощь 4",
+    "description": "",
+    "category": 2,
+    "is_active": true,
+    "price": "200",
+    "discount": null,
+    "discounted_price": null,
+    "in_stock": true,
+    "quantity": null,
+    "date": "2021-07-20T14:25:32.952Z",
+    "offer": false,
+    "slug": "ovosch-4",
+    "created_at": "2021-07-20T14:25:32.952Z",
+    "updated_at": "2021-07-20T14:25:32.952Z",
+    "count_sold": 0
+  }
+},
+{
+  "model": "webapp.image",
+  "pk": 5,
+  "fields": {
+    "image": "product_images/test2.png",
+    "product": 1
+  }
+},
+{
+  "model": "webapp.image",
+  "pk": 6,
+  "fields": {
+    "image": "product_images/apple_r.png",
+    "product": 2
+  }
+},
+{
+  "model": "webapp.image",
+  "pk": 7,
+  "fields": {
+    "image": "product_images/Без_названия.jpeg",
+    "product": 2
+  }
+},
+{
+  "model": "webapp.image",
+  "pk": 8,
+  "fields": {
+    "image": "product_images/200px-Banana.png",
+    "product": 3
+  }
+},
+{
+  "model": "webapp.image",
+  "pk": 9,
+  "fields": {
+    "image": "product_images/apple_r_LZ1CVvo.png",
+    "product": 4
+  }
+},
+{
+  "model": "webapp.image",
+  "pk": 10,
+  "fields": {
+    "image": "product_images/200px-Banana_maXdiEI.png",
+    "product": 6
+  }
+},
+{
+  "model": "webapp.image",
+  "pk": 11,
+  "fields": {
+    "image": "product_images/Без_названия_aV3llfC.jpeg",
+    "product": 5
+  }
+},
+{
+  "model": "webapp.image",
+  "pk": 12,
+  "fields": {
+    "image": "product_images/200px-Banana_nNGzAfn.png",
+    "product": 7
+  }
+},
+{
+  "model": "webapp.image",
+  "pk": 13,
+  "fields": {
+    "image": "product_images/200px-Banana_mKIOWFD.png",
+    "product": 8
+  }
+},
+{
+  "model": "webapp.image",
+  "pk": 14,
+  "fields": {
+    "image": "product_images/fruechte-und-gemuese-social_p39232.jpg",
+    "product": 10
+  }
+},
+{
+  "model": "webapp.image",
+  "pk": 15,
+  "fields": {
+    "image": "product_images/200px-Banana_KRWSpfm.png",
+    "product": 9
+  }
+},
+{
+  "model": "webapp.image",
+  "pk": 16,
+  "fields": {
+    "image": "product_images/apple_r_QeJ8d6f.png",
+    "product": 11
+  }
+},
+{
+  "model": "webapp.image",
+  "pk": 17,
+  "fields": {
+    "image": "product_images/200px-Banana_zckfOPk.png",
+    "product": 12
+  }
+},
+{
+  "model": "webapp.image",
+  "pk": 18,
+  "fields": {
+    "image": "product_images/apple_r_dNYupcf.png",
+    "product": 13
+  }
+},
+{
+  "model": "webapp.image",
+  "pk": 19,
+  "fields": {
+    "image": "product_images/apple_r_gb1e9Rf.png",
+    "product": 14
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 1,
+  "fields": {
+    "first_name": "Акыл",
+    "last_name": "Айдарбеков",
+    "email": "akyl.aydarbekov@gmail.com",
+    "phone": "+996-708-98-40-55",
+    "address": "Восток 5 д33 кв55",
+    "shipping_district": 1,
+    "created_at": "2021-07-23T04:40:07.376Z",
+    "updated_at": "2021-07-23T04:40:07.376Z",
+    "additional_info": "оывдфалоывдаж",
+    "total_sum": "9999.00"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 2,
+  "fields": {
+    "first_name": "asd",
+    "last_name": "Айдарбеков",
+    "email": "ajanysh88@gmail.com",
+    "phone": "+996-708-98-40-55",
+    "address": "Восток 5 д33 кв55",
+    "shipping_district": 1,
+    "created_at": "2021-07-23T05:08:27.563Z",
+    "updated_at": "2021-07-23T05:08:27.563Z",
+    "additional_info": "asda",
+    "total_sum": "9999.00"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 3,
+  "fields": {
+    "first_name": "asd",
+    "last_name": "Айдарбеков",
+    "email": "ajanysh88@gmail.com",
+    "phone": "+996-708-98-40-55",
+    "address": "Восток 5 д33 кв55",
+    "shipping_district": 1,
+    "created_at": "2021-07-23T05:09:44.250Z",
+    "updated_at": "2021-07-23T05:09:44.250Z",
+    "additional_info": "оывдфалоывдаж",
+    "total_sum": "9999.00"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 4,
+  "fields": {
+    "first_name": "asd",
+    "last_name": "asd",
+    "email": "ajanysh88@gmail.com",
+    "phone": "+996-708-98-40-55",
+    "address": "Восток 5 д33 кв55",
+    "shipping_district": 1,
+    "created_at": "2021-07-23T05:11:15.001Z",
+    "updated_at": "2021-07-23T05:11:15.001Z",
+    "additional_info": "оывдфалоывдаж",
+    "total_sum": "9999.00"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 5,
+  "fields": {
+    "first_name": "asd",
+    "last_name": "asd",
+    "email": "ajanysh88@gmail.com",
+    "phone": "+996-708-98-40-55",
+    "address": "Восток 5 д33 кв55",
+    "shipping_district": 1,
+    "created_at": "2021-07-23T05:20:35.923Z",
+    "updated_at": "2021-07-23T05:20:35.923Z",
+    "additional_info": "ddsf",
+    "total_sum": "9999.00"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 6,
+  "fields": {
+    "first_name": "asd",
+    "last_name": "asd",
+    "email": "ajanysh88@gmail.com",
+    "phone": "+996-708-98-40-55",
+    "address": "Восток 5 д33 кв55",
+    "shipping_district": 1,
+    "created_at": "2021-07-23T05:24:36.291Z",
+    "updated_at": "2021-07-23T05:24:36.291Z",
+    "additional_info": "ddsf",
+    "total_sum": "9999.00"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 7,
+  "fields": {
+    "first_name": "asd",
+    "last_name": "asd",
+    "email": "ajanysh88@gmail.com",
+    "phone": "+996-708-98-40-55",
+    "address": "Восток 5 д33 кв55",
+    "shipping_district": 1,
+    "created_at": "2021-07-23T05:25:13.792Z",
+    "updated_at": "2021-07-23T05:25:13.792Z",
+    "additional_info": "ddsf",
+    "total_sum": "9999.00"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 8,
+  "fields": {
+    "first_name": "asd",
+    "last_name": "asd",
+    "email": "ajanysh88@gmail.com",
+    "phone": "+996-708-98-40-55",
+    "address": "Восток 5 д33 кв55",
+    "shipping_district": 1,
+    "created_at": "2021-07-23T05:25:38.235Z",
+    "updated_at": "2021-07-23T05:25:38.235Z",
+    "additional_info": "ddsf",
+    "total_sum": "9999.00"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 9,
+  "fields": {
+    "first_name": "asd",
+    "last_name": "asd",
+    "email": "ajanysh88@gmail.com",
+    "phone": "+996-708-98-40-55",
+    "address": "Восток 5 д33 кв55",
+    "shipping_district": 1,
+    "created_at": "2021-07-23T05:29:52.136Z",
+    "updated_at": "2021-07-23T05:29:52.163Z",
+    "additional_info": "asda",
+    "total_sum": "350.00"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 10,
+  "fields": {
+    "first_name": "ываыв",
+    "last_name": "ыва",
+    "email": "ajanysh88@gmail.com",
+    "phone": "ыва",
+    "address": "Восток 5 д33 кв55",
+    "shipping_district": null,
+    "created_at": "2021-07-25T16:47:33.799Z",
+    "updated_at": "2021-07-25T16:47:33.821Z",
+    "additional_info": "оывдфалоывдаж",
+    "total_sum": "680.00"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 11,
+  "fields": {
+    "first_name": "ываыв",
+    "last_name": "ыва",
+    "email": "ajanysh88@gmail.com",
+    "phone": "ыва",
+    "address": "Восток 5 д33 кв55",
+    "shipping_district": null,
+    "created_at": "2021-07-25T16:48:11.739Z",
+    "updated_at": "2021-07-25T16:48:11.764Z",
+    "additional_info": "оывдфалоывдаж",
+    "total_sum": "680.00"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 12,
+  "fields": {
+    "first_name": "Акыл",
+    "last_name": "Айдарбеков",
+    "email": "ajanysh88@gmail.com",
+    "phone": "+996-708-98-40-55",
+    "address": "Восток 5 д33 кв55",
+    "shipping_district": null,
+    "created_at": "2021-07-25T16:48:37.160Z",
+    "updated_at": "2021-07-25T16:48:37.182Z",
+    "additional_info": "оывдфалоывдаж",
+    "total_sum": "680.00"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 13,
+  "fields": {
+    "first_name": "Акыл",
+    "last_name": "Айдарбеков",
+    "email": "ajanysh88@gmail.com",
+    "phone": "+996-708-98-40-55",
+    "address": "Восток 5 д33 кв55",
+    "shipping_district": null,
+    "created_at": "2021-07-25T16:49:27.535Z",
+    "updated_at": "2021-07-25T16:49:27.558Z",
+    "additional_info": "оывдфалоывдаж",
+    "total_sum": "680.00"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 14,
+  "fields": {
+    "first_name": "Акыл",
+    "last_name": "Айдарбеков",
+    "email": "ajanysh88@gmail.com",
+    "phone": "+996-708-98-40-55",
+    "address": "Восток 5 д33 кв55",
+    "shipping_district": null,
+    "created_at": "2021-07-25T16:51:17.780Z",
+    "updated_at": "2021-07-25T16:51:17.789Z",
+    "additional_info": "оывдфалоывдаж",
+    "total_sum": "40.00"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 15,
+  "fields": {
+    "first_name": "Акыл",
+    "last_name": "Айдарбеков",
+    "email": "ajanysh88@gmail.com",
+    "phone": "+996-708-98-40-55",
+    "address": "Восток 5 д33 кв55",
+    "shipping_district": null,
+    "created_at": "2021-07-25T16:54:35.093Z",
+    "updated_at": "2021-07-25T16:54:35.105Z",
+    "additional_info": "оывдфалоывдаж",
+    "total_sum": "200.00"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 16,
+  "fields": {
+    "first_name": "Акыл",
+    "last_name": "asd",
+    "email": "ajanysh88@gmail.com",
+    "phone": "+996-708-98-40-55",
+    "address": "Восток 5 д33 кв55",
+    "shipping_district": null,
+    "created_at": "2021-07-25T16:58:09.862Z",
+    "updated_at": "2021-07-25T16:58:09.871Z",
+    "additional_info": "оывдфалоывдаж",
+    "total_sum": "130.00"
+  }
+},
+{
+  "model": "webapp.deliverydistricts",
+  "pk": 1,
+  "fields": {
+    "district": "центр",
+    "price": "50"
+  }
+},
+{
+  "model": "webapp.deliverydistricts",
+  "pk": 2,
+  "fields": {
+    "district": "окраина",
+    "price": "100"
+  }
+},
+{
+  "model": "webapp.deliverydistricts",
+  "pk": 3,
+  "fields": {
+    "district": "село",
+    "price": "150"
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "product": 2,
+    "amount": 10
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 2,
+  "fields": {
+    "order": 1,
+    "product": 5,
+    "amount": 6
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 3,
+  "fields": {
+    "order": 1,
+    "product": 3,
+    "amount": 4
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 4,
+  "fields": {
+    "order": 1,
+    "product": 1,
+    "amount": 4
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 5,
+  "fields": {
+    "order": 1,
+    "product": 4,
+    "amount": 5
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 6,
+  "fields": {
+    "order": 2,
+    "product": 3,
+    "amount": 4
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 7,
+  "fields": {
+    "order": 2,
+    "product": 1,
+    "amount": 4
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 8,
+  "fields": {
+    "order": 2,
+    "product": 2,
+    "amount": 4
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 9,
+  "fields": {
+    "order": 3,
+    "product": 2,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 10,
+  "fields": {
+    "order": 4,
+    "product": 1,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 11,
+  "fields": {
+    "order": 4,
+    "product": 2,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 12,
+  "fields": {
+    "order": 4,
+    "product": 4,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 13,
+  "fields": {
+    "order": 5,
+    "product": 1,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 14,
+  "fields": {
+    "order": 5,
+    "product": 2,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 15,
+  "fields": {
+    "order": 5,
+    "product": 4,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 16,
+  "fields": {
+    "order": 6,
+    "product": 4,
+    "amount": 4
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 17,
+  "fields": {
+    "order": 6,
+    "product": 2,
+    "amount": 4
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 18,
+  "fields": {
+    "order": 6,
+    "product": 1,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 19,
+  "fields": {
+    "order": 7,
+    "product": 4,
+    "amount": 4
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 20,
+  "fields": {
+    "order": 7,
+    "product": 2,
+    "amount": 4
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 21,
+  "fields": {
+    "order": 7,
+    "product": 1,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 22,
+  "fields": {
+    "order": 8,
+    "product": 4,
+    "amount": 4
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 23,
+  "fields": {
+    "order": 8,
+    "product": 2,
+    "amount": 4
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 24,
+  "fields": {
+    "order": 8,
+    "product": 1,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 25,
+  "fields": {
+    "order": 9,
+    "product": 3,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 26,
+  "fields": {
+    "order": 9,
+    "product": 1,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 27,
+  "fields": {
+    "order": 9,
+    "product": 2,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 28,
+  "fields": {
+    "order": 9,
+    "product": 4,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 29,
+  "fields": {
+    "order": 9,
+    "product": 5,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 30,
+  "fields": {
+    "order": 10,
+    "product": 1,
+    "amount": 3
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 31,
+  "fields": {
+    "order": 10,
+    "product": 2,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 32,
+  "fields": {
+    "order": 10,
+    "product": 4,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 33,
+  "fields": {
+    "order": 10,
+    "product": 3,
+    "amount": 4
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 34,
+  "fields": {
+    "order": 11,
+    "product": 1,
+    "amount": 3
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 35,
+  "fields": {
+    "order": 11,
+    "product": 2,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 36,
+  "fields": {
+    "order": 11,
+    "product": 4,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 37,
+  "fields": {
+    "order": 11,
+    "product": 3,
+    "amount": 4
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 38,
+  "fields": {
+    "order": 12,
+    "product": 1,
+    "amount": 3
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 39,
+  "fields": {
+    "order": 12,
+    "product": 2,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 40,
+  "fields": {
+    "order": 12,
+    "product": 4,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 41,
+  "fields": {
+    "order": 12,
+    "product": 3,
+    "amount": 4
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 42,
+  "fields": {
+    "order": 13,
+    "product": 1,
+    "amount": 3
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 43,
+  "fields": {
+    "order": 13,
+    "product": 2,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 44,
+  "fields": {
+    "order": 13,
+    "product": 4,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 45,
+  "fields": {
+    "order": 13,
+    "product": 3,
+    "amount": 4
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 46,
+  "fields": {
+    "order": 14,
+    "product": 5,
+    "amount": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 47,
+  "fields": {
+    "order": 15,
+    "product": 3,
+    "amount": 2
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 48,
+  "fields": {
+    "order": 16,
+    "product": 2,
+    "amount": 1
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$150000$pqtAmeJzKAgK$q0g2wTRkNi4EXcyVkZRd1cTQyPfQGzNtwVw72VQMrOY=",
-    "last_login": null,
+    "last_login": "2021-07-23T04:40:23.465Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
