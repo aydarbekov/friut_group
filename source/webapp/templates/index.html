@@ -76,7 +76,7 @@
                                         <button><i class="fas fa-plus" aria-hidden="true"></i></button>
                                     </div>
                                 </div>
-                                <button data="{{ product.pk }}" class="to-cart-btn btn btn-primary">В корзину</button>
+                                <button data="{{ product.pk }}" data-ajax-target="{% url 'webapp:cart_change' %}" class="to-cart-btn btn btn-primary">В корзину</button>
                             </div>
                             {% if product.discount %}
                                 <div class="discount-in-top">
