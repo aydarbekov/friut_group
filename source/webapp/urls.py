@@ -1,7 +1,7 @@
 from django.urls import path
 
 from webapp.views.cart_views import CartView, CartChangeView
-from webapp.views.product_views import IndexView, ProductsInCategoryView
+from webapp.views.product_views import IndexView, ProductsInCategoryView, SearchView
 
 app_name = 'webapp'
 
@@ -10,6 +10,7 @@ urlpatterns = [
     path('category/<slug:slug>/', ProductsInCategoryView.as_view(), name='category'),
     path('cart/change/', CartChangeView.as_view(), name='cart_change'),
     path('cart/', CartView.as_view(), name='cart'),
+    path('search/', SearchView.as_view(), name='search')
 
     # path('article/<int:pk>/', ArticleView.as_view(), name='article_view'),
     # path('article/add/', ArticleCreateView.as_view(), name='article_add'),

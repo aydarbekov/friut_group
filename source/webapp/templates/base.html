@@ -38,7 +38,7 @@
                 <div class="graphik">ПН-ВС 9:00-19:00</div>
                 <a class="call-btn btn btn-success" href="tel:+7 (495) 123 45 67">Позвонить</a>
             </div>
-            <div class="main-logo"></div>
+            <a href="/"><div class="main-logo"></div></a>
             <div class="right-header-content flex-column">
                 <div class="social-links flex-column">
                     <span>Будьте с нами!</span>
@@ -51,8 +51,8 @@
                 </div>
                 <div class="search-line">
                     <div class="search">
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
+                        <form class="d-flex" action="{% url 'webapp:search' %}" method="GET">
+                            <input class="form-control me-2" type="search" placeholder="" aria-label="Search" name="search">
                             <button class="btn" type="submit"></button>
                         </form>
                     </div>

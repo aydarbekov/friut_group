@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="main-pic-div ms-md-3">
-            {% if category.image %}
+            {% if category and category.image %}
                 <div class="main-pic col-12 col-md-9" style="background-image: url({{ category.image.url }} "></div>
             {% else %}
                 <div class="main-pic col-12 col-md-9"></div>
@@ -48,15 +48,17 @@
         </div>
     </div>
     <div class="container mt-4 d-flex justify-content-center">
-        {% for sub in category.children.all %}
-            <a class="btn btn-success mx-3" href="{% url 'webapp:category' sub.slug %}">{{ sub }}</a>
-        {% endfor %}
+        {% if category %}
+            {% for sub in category.children.all %}
+                <a class="btn btn-success mx-3" href="{% url 'webapp:category' sub.slug %}">{{ sub }}</a>
+            {% endfor %}
+        {% endif %}
     </div>
     <div class="products-in-category container mt-4">
         <div class="row row-cols-2 row-cols-md-5 g-2 justify-content-center">
             {% for product in products %}
 
-                <div class="card .h-100 d-flex flex-column" style="width: 18rem;">
+                <div class="card .h-100 d-flex flex-column" style="width: 15rem;">
                     <div class="foto-block">
                         <img src="{{ product.images.first.image.url }}" class="card-img-top" alt="Фото товара">
                     </div>
@@ -77,7 +79,7 @@
                                 <button><i class="fas fa-plus" aria-hidden="true"></i></button>
                             </div>
                         </div>
-                        <button data="{{ product.pk }}" class="to-cart-btn btn btn-primary">В корзину</button>
+                        <button data="{{ product.pk }}" data-ajax-target="{% url 'webapp:cart_change' %}" class="to-cart-btn btn btn-primary">В корзину</button>
                     </div>
                     {% if product.discount %}
                         <div class="discount-in-top">
@@ -89,52 +91,23 @@
         </div>
     </div>
 
-    <ul>
-        {% recursetree categories %}
-            <li>
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ node.slug }}" aria-expanded="false" aria-controls="collapseExample">
-                    B
-                </button>
-                <a href="{% url 'webapp:category' node.slug %}">{{ node.name }}</a>
-                {% if not node.is_leaf_node %}
-                    <div class="collapse" id="collapse-{{ node.slug }}">
-                        <ul class="children">
-                            <a href="{% url 'webapp:category' category.slug %}">{{ children }}</a>
-                        </ul>
-                    </div>
-                {% endif %}
-            </li>
-        {% endrecursetree %}
-    </ul>
-{#    {% for category in categories %}#}
-{#        {% if category.is_root_node %}#}
-{#            {{ category.get_descendant_count }}#}
-{#            {{ category.children.all }}#}
-{#            <li>#}
-{#                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ forloop.counter0 }}" aria-expanded="false" aria-controls="collapseExample">#}
-{#                    B#}
-{#                </button>#}
-{#                <a href="{% url 'webapp:category' category.slug %}">{{ category.name }}</a>#}
-{##}
-{#                {% if not category.is_leaf_node %}#}
-{#                    <div class="collapse" id="collapse-{{ forloop.counter0 }}">#}
-{#                        {% for sub in category.children.all %}#}
-{#                            <ul class="children">#}
-{#                                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ forloop.counter0 }}" aria-expanded="false" aria-controls="collapseExample">#}
-{#                                    B#}
-{#                                </button>#}
-{#                                <a href="{% url 'webapp:category' sub.slug %}">{{ sub }}</a>#}
-{#                            </ul>#}
-{#                        {% endfor %}#}
-{#                    </div>#}
-{#                {% endif %}#}
-{#            </li>#}
-{#        {% endif %}#}
-{##}
-{#    {% endfor %}#}
-
-{#    {{ parents|tree_path:" > "  }}#}
-{#    {{ parents }}#}
+    {#    <ul>#}
+    {#        {% recursetree categories %}#}
+    {#            <li>#}
+    {#                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ node.slug }}" aria-expanded="false" aria-controls="collapseExample">#}
+    {#                    B#}
+    {#                </button>#}
+    {#                <a href="{% url 'webapp:category' node.slug %}">{{ node.name }}</a>#}
+    {#                {% if not node.is_leaf_node %}#}
+    {#                    <div class="collapse" id="collapse-{{ node.slug }}">#}
+    {#                        <ul class="children">#}
+    {#                            <a href="{% url 'webapp:category' category.slug %}">{{ children }}</a>#}
+    {#                        </ul>#}
+    {#                    </div>#}
+    {#                {% endif %}#}
+    {#            </li>#}
+    {#        {% endrecursetree %}#}
+    {#    </ul>#}
 {% endblock %}
 {% block scripts %}
     {#    <script type="application/javascript" src="{% static "js/main.js" %}"></script>#}

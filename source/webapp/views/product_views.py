@@ -20,7 +20,7 @@ class IndexView(ListView):
         context['lasts'] = Product.objects.filter(is_active=True).order_by('-updated_at')[:20]
         products = self.request.session.get('products', [])
         context['products_count'] = len(products)
-
+        context['bestseller'] = Product.objects.filter(is_active=True, offer=True).order_by('-updated_at').first()
         return context
 
 
@@ -41,6 +41,27 @@ class ProductsInCategoryView(ListView):
                                                      .get_descendants(include_self=True))
         context['categories'] = Category.objects.all()
         context['parents'] = get_object_or_404(Category, slug=self.kwargs['slug']).get_ancestors(ascending=False, include_self=True)
+        products = self.request.session.get('products', [])
+        context['products_count'] = len(products)
+        return context
+
+
+class SearchView(ListView):
+    template_name = 'products_in_category.html'
+
+    def get_queryset(self):
+        category_products = Product.objects.filter(name__icontains=self.request.GET.get('search')).order_by('name')
+        return category_products
+
+    def get_context_data(self, **kwargs):
+        search = self.request.GET.get('search')
+        context = super().get_context_data(**kwargs)
+        context['hor_categories'] = Category.objects.filter(is_active=True, parent=None).order_by('-updated_at')[:4]
+        context['ver_categories'] = Category.objects.filter(is_active=True, parent=None).order_by('-updated_at')[4:]
+        # context['category'] = Category.objects.all()[0]
+        context['products'] = Product.objects.filter(name__icontains=search).order_by('name')
+        context['categories'] = Category.objects.all()
+        # context['parents'] = None
         products = self.request.session.get('products', [])
         context['products_count'] = len(products)
         return context
