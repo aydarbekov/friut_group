@@ -1,6 +1,53 @@
 
 
 $(function(){
+    // let stickyNavTop = $('.category-navbar').offset().top;
+    // let stickyNav = function(){
+    //     let scrollTop = $(window).scrollTop();
+    //     if (scrollTop > stickyNavTop) {
+    //         $('.category-navbar').addClass('sticky');
+    //     } else {
+    //         $('.category-navbar').removeClass('sticky');
+    //     }
+    // };
+    // stickyNav();
+    // $(window).scroll(function() {
+    //     stickyNav();
+    // });
+
+    // $('.to-cart-btn').click(function(){
+    //     $(this).closest('.card').find('img').clone()
+    //         .css({'position' : 'absolute', 'z-index' : '1000'})
+    //         .appendTo("body").animate({
+    //         top: $(".cart").offset()['top'],
+    //         left: $(".cart").offset()['left'],
+    //         opacity: 0,
+    //         width: 40
+    //     },1500, function(){
+    //         $(this).remove();
+    //
+    //     });
+    // });
+    $('.to-cart-btn').on('click', function(){
+        let that = $(this).closest('.card').find('img');
+        let bascket = $(".cart");
+        let w = that.width();
+        that.clone()
+            .css({'width' : w,
+                'position' : 'absolute',
+                    'z-index' : '9999',
+        top: that.offset().top,
+        left:that.offset().left})
+            .appendTo("body")
+            .animate({opacity: 0.05,
+                left: bascket.offset()['left'],
+        top: bascket.offset()['top'],
+        width: 20}, 1000, function() {
+            $(this).remove();
+        });
+    });
+
+
     function getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {

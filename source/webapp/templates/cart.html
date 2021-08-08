@@ -3,7 +3,7 @@
 {% block title %}Корзина{% endblock %}
 {% block styles %}{% endblock %}
 {% block content %}
-    <div class="container my-4 my-sm-5">
+    <div class="container mb-4 mb-sm-5">
         <div class="row">
             <div class="col-12 col-lg-8">
                 <div class="table-products">
@@ -11,7 +11,7 @@
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item active">Корзина</li>
                             <li class="breadcrumb-item">Проверка</li>
-                            <li class="breadcrumb-item">Оплата</li>
+{#                            <li class="breadcrumb-item">Оплата</li>#}
                         </ol>
                     </nav>
                     <table class="table-base table table-hover mt-4 mt-sm-5">
@@ -19,7 +19,7 @@
                         <tr class="table-header">
                             <th class="none-top-border" scope="col"></th>
                             <th class="none-top-border tovar" scope="col">Товар</th>
-                            <th class="none-top-border"></th>
+                            <th class="none-top-border" scope="col">Название</th>
                             <th class="none-top-border" scope="col">Цена</th>
                             <th class="none-top-border" scope="col">Количество</th>
                             <th class="none-top-border" scope="col">Итого</th>
@@ -27,7 +27,7 @@
                         </thead>
                         <tbody>
                         {% for item in cart %}
-                            <tr class="product-{{ item.product.pk }}">
+                            <tr class="prod-in-table product-{{ item.product.pk }}">
                                 <td class="table-first-column">
                                     <div class="delete-from-cart"
                                          data="{{ item.product.pk }}">
@@ -47,10 +47,10 @@
                                 </td>
                                 <td class="table-products-name table-for-vertical">
                                     {{ item.product.name }}
-                                    <div class="delete-from-cart d-inline-block d-sm-none"></div>
+{#                                    <div class="delete-from-cart d-inline-block d-sm-none"></div>#}
                                 </td>
                                 <td class="table-price table-for-vertical">
-                                    <p class="d-inline-block d-sm-none">Цена</p>
+{#                                    <p class="d-inline-block d-sm-none">Цена</p>#}
                                     {% if item.product.discounted_price %}
                                         <div class="price-{{ item.product.pk }}">
                                             <strike>{{ item.product.price }}</strike>
@@ -65,30 +65,20 @@
                                     {% endif %}
                                 </td>
                                 <td class="table-quantity table-for-vertical">
-                                    <p class="d-inline-block d-sm-none">Количество</p>
-                                    <div class="input-number">
-                                        <div class="input-number__minus cartdelete" href="" id="cart-delete-{{ item.product.pk }}"
-                                             data-product-pk="{{ item.product.pk }}">-
-                                            {#                                            <a href="{% url "webapp:cartdeleteitem" %}" id="cart-delete-{{ item.product.pk }}"#}
-                                            {#                               data-product-pk="{{ item.product.pk }}"#}
-                                            {#                               class="">-</a>#}
-                                            {#                                            <a href="{% url 'webapp:cart_change' %}?pk={{ item.product.pk }}&action=remove&next={% url 'webapp:cart' %}">-</a>#}
+{#                                    <p class="d-inline-block d-sm-none">Количество</p>#}
+                                    <div class="cart-item-quantity d-flex align-items-center" id="product-quantity">
+                                        <div class="minus-quantity-2" data="{{ item.product.pk }}" data-ajax-target="{% url 'webapp:cart_change' %}">
+                                            <button><i class="fas fa-minus" aria-hidden="true"></i></button>
                                         </div>
-                                        <input class="input-number__input" type="text" pattern="^[0-9]+$"
-                                               id="gty-{{ item.product.pk }}"
-                                               value="{{ item.qty }}">
-                                        <div class="input-number__plus cartadd" href="" id="cart-add-{{ item.product.pk }}"
-                                             data-product-pk="{{ item.product.pk }}">
-                                            {#                                            <a href="{% url "webapp:cartadditem" %}" id="cart-add-{{ item.product.pk }}"#}
-                                            {#                               data-product-pk="{{ item.product.pk }}"#}
-                                            {#                               class="">+</a>#}+
-                                            {#                                            <a href="{% url 'webapp:cart_change' %}?pk={{ item.product.pk }}&action=add&next={% url 'webapp:cart' %}">+</a>#}
+                                        <div class="quantity">{{ item.qty }}</div>
+                                        <div class="plus-quantity-2" data="{{ item.product.pk }}" data-ajax-target="{% url 'webapp:cart_change' %}">
+                                            <button><i class="fas fa-plus" aria-hidden="true"></i></button>
                                         </div>
-
                                     </div>
+
                                 </td>
-                                <td class="product-summ table-for-vertical"><p class="d-inline-block d-sm-none">
-                                    Итого</p>
+                                <td class="product-summ table-for-vertical">
+{#                                    <p class="d-inline-block d-sm-none">Итого</p>#}
                                     {#                                    <input class="" type="text" id="total-{{ item.product.pk }}"#}
                                     {#                                               value="{{ item.total }}">#}
                                     <div class="total-{{ item.product.pk }}">{{ item.total }}</div>
@@ -130,8 +120,7 @@
                                 </select>
                             </th>
                             <td class="none-top-border cart-summ-itog">
-                                <div class="delivery-value">
-                                    ---</div>
+                                <div class="delivery-value">---</div>
                             </td>
                         </tr>
                         </tbody>

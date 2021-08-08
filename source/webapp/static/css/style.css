@@ -475,14 +475,7 @@ footer .catalog{
     right: 0;
     color: white;
 }
-table .photo-back-table {
-    height: 110px;
-    width: 100px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
+
 .delete-from-cart{
     width: 20px;
     height: 20px;
@@ -537,6 +530,47 @@ table .photo-back-table {
     padding-left: 10px;
     padding-right: 17px;
     background-image: url(../images/pics/bestseller-flag.png);
+}
+.prod-in-table{
+    vertical-align: middle;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    color: #252525;
+}
+.table-base th{
+    text-align: left;
+}
+.table-base td{
+    text-align: left;
+}
+.table-base .tovar{
+    padding-left: 30px;
+}
+.table-base .cart-item-quantity {
+    color: black;
+}
+.table-base .photo-back-table {
+    height: 110px;
+    align-items: center;
+    display: flex;
+    padding: 10px;
+}
+.table-base .photo-back-table img{
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+.cart-summ{
+    margin-top: 75px;
+}
+.category-navbar{
+    position: sticky;
+    top: -1px;
+    z-index: 100;
+}
+#id_shipping_district{
+    width: auto;
 }
 
 @media screen and (max-width:576px) {
@@ -722,8 +756,8 @@ table .photo-back-table {
     }
     .table-second-column{
         border: none!important;
-        padding-bottom: 25px!important;
-        padding-top: 25px!important;
+        /*padding-bottom: 25px!important;*/
+        /*padding-top: 25px!important;*/
     }
     .count{
         width: 13px;
@@ -755,5 +789,33 @@ table .photo-back-table {
     }
     .main-pic {
         justify-content: center;
+    }
+    .prod-in-table{
+        font-size: 10px;
+    }
+    .table-base th{
+        font-size: 10px;
+    }
+    .delete-from-cart {
+        width: 10px;
+        height: 10px;
+        background-size: 10px;
+    }
+    .foto-block {
+        margin: 15px;
+        height: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .table-base .photo-back-table {
+        height: 60px;
+        padding: 0;
+    }
+    .table-base .tovar{
+        padding-left: 15px;
+    }
+    .cart-summ{
+            margin-top: 0;
     }
 }

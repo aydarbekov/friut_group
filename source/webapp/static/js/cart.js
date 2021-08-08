@@ -46,7 +46,15 @@ $(function(){
             dataType: 'json',
             success: function (data) {
                 elem.parent().parent().remove();
-                $('.cart-total').html(data.total)
+                $('.cart-total').html(data.total);
+                let delivery = $('.delivery-value').html();
+                if (delivery === '---'){
+                    $('.cart-total-delivery').html(data.total);
+                }else {
+                    let summ = parseInt(data.total)+parseInt(delivery);
+                    console.log(summ);
+                    $('.cart-total-delivery').html(summ);
+                }
             }
         });
     });
@@ -55,5 +63,98 @@ $(function(){
         let sum = parseInt($(this).val());
         $('.delivery-value').html(sum);
         $('.cart-total-delivery').html(cartTotal + sum);
+    });
+    $( ".plus-quantity-2" ).click(function() {
+        let pk = $(this).attr('data');
+        let url = $(this).attr('data-ajax-target');
+        let countDiv = $(this).prev('div');
+        let newCount = parseInt(countDiv.html()) + 1;
+        $.ajax({
+            url: url,
+            type: 'post',
+            data: {
+                pk: pk,
+                count: '1',
+                action: 'add'
+            },
+            headers: {
+                'X-CSRFToken': csrftoken
+            },
+            dataType: 'json',
+            success: function (data) {
+                countDiv.html(newCount);
+                $( ".total-"+pk).html(data.product_summ);
+                $('.cart-total').html(data.total);
+                let delivery = $('.delivery-value').html();
+                if (delivery === '---'){
+                    $('.cart-total-delivery').html(data.total);
+                }else {
+                    let summ = parseInt(data.total)+parseInt(delivery);
+                    console.log(summ);
+                    $('.cart-total-delivery').html(summ);
+                }
+            }
+        });
+
+    });
+    $( ".minus-quantity-2" ).click(function() {
+        let elem = $(this);
+        let pk = $(this).attr('data');
+        let url = $(this).attr('data-ajax-target');
+        let countDiv = $(this).next('div');
+        let newCount = parseInt(countDiv.html()) - 1;
+        console.log(newCount);
+        $.ajax({
+            url: url,
+            type: 'post',
+            data: {
+                pk: pk,
+                count: '1',
+                action: 'minus'
+            },
+            headers: {
+                'X-CSRFToken': csrftoken
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (newCount === 0){
+                    elem.closest('tr').remove();
+                }else {
+                    countDiv.html(newCount);
+                }
+                $( ".total-"+pk).html(data.product_summ);
+                $('.cart-total').html(data.total);
+                let delivery = $('.delivery-value').html();
+                if (delivery === '---'){
+                    $('.cart-total-delivery').html(data.total);
+                }else {
+                    let summ = parseInt(data.total)+parseInt(delivery);
+                    console.log(summ);
+                    $('.cart-total-delivery').html(summ);
+                }
+            }
+        });
+    });
+    $('.to-cart-btn').on('click', function() {
+        let pk = $(this).attr('data');
+        let url = $(this).attr('data-ajax-target');
+        let count_1 = $(this).prev().find('.quantity');
+        $.ajax({
+            url: url,
+            type: 'post',
+            data: {
+                pk: pk,
+                count: count_1.html(),
+                action: 'add'
+            },
+            headers: {
+                'X-CSRFToken': csrftoken
+            },
+            dataType: 'json',
+            success: function (data) {
+                $('.count').html(data.products_count);
+                console.info(data);
+            }
+        });
     });
 });
