@@ -28,24 +28,7 @@ $(function(){
     //
     //     });
     // });
-    $('.to-cart-btn').on('click', function(){
-        let that = $(this).closest('.card').find('img');
-        let bascket = $(".cart");
-        let w = that.width();
-        that.clone()
-            .css({'width' : w,
-                'position' : 'absolute',
-                    'z-index' : '9999',
-        top: that.offset().top,
-        left:that.offset().left})
-            .appendTo("body")
-            .animate({opacity: 0.05,
-                left: bascket.offset()['left'],
-        top: bascket.offset()['top'],
-        width: 20}, 1000, function() {
-            $(this).remove();
-        });
-    });
+
 
 
     function getCookie(name) {
@@ -81,6 +64,22 @@ $(function(){
         let pk = $(this).attr('data');
         let url = $(this).attr('data-ajax-target');
         let count_1 = $(this).prev().find('.quantity');
+        let img = $(this).closest('.card').find('img');
+        let cart = $(".cart");
+        let w = img.width();
+        img.clone()
+            .css({'width' : w,
+                'position' : 'absolute',
+                'z-index' : '9999',
+                top: img.offset().top,
+                left:img.offset().left})
+            .appendTo("body")
+            .animate({opacity: 0.05,
+                left: cart.offset()['left'],
+                top: cart.offset()['top'],
+                width: 20}, 1000, function() {
+                $(this).remove();
+            });
         $.ajax({
             url: url,
             type: 'post',

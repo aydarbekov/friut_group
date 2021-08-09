@@ -31,10 +31,11 @@ $(function(){
     //     }
     // });
     $('.delete-from-cart').on('click', function() {
+        let url = $(this).attr('data-ajax-target');
         let elem = $(this);
         let pk = $(this).attr('data');
         $.ajax({
-            url: 'http://localhost:8000/cart/change/',
+            url: url,
             type: 'post',
             data: {
                 pk: pk,
@@ -135,26 +136,26 @@ $(function(){
             }
         });
     });
-    $('.to-cart-btn').on('click', function() {
-        let pk = $(this).attr('data');
-        let url = $(this).attr('data-ajax-target');
-        let count_1 = $(this).prev().find('.quantity');
-        $.ajax({
-            url: url,
-            type: 'post',
-            data: {
-                pk: pk,
-                count: count_1.html(),
-                action: 'add'
-            },
-            headers: {
-                'X-CSRFToken': csrftoken
-            },
-            dataType: 'json',
-            success: function (data) {
-                $('.count').html(data.products_count);
-                console.info(data);
-            }
-        });
-    });
+    // $('.to-cart-btn').on('click', function() {
+    //     let pk = $(this).attr('data');
+    //     let url = $(this).attr('data-ajax-target');
+    //     let count_1 = $(this).prev().find('.quantity');
+    //     $.ajax({
+    //         url: url,
+    //         type: 'post',
+    //         data: {
+    //             pk: pk,
+    //             count: count_1.html(),
+    //             action: 'add'
+    //         },
+    //         headers: {
+    //             'X-CSRFToken': csrftoken
+    //         },
+    //         dataType: 'json',
+    //         success: function (data) {
+    //             $('.count').html(data.products_count);
+    //             console.info(data);
+    //         }
+    //     });
+    // });
 });
