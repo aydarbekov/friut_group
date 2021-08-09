@@ -45,7 +45,7 @@ $(function(){
             },
             dataType: 'json',
             success: function (data) {
-                elem.parent().parent().remove();
+                elem.closest('tr').remove();
                 $('.cart-total').html(data.total);
                 let delivery = $('.delivery-value').html();
                 if (delivery === '---'){

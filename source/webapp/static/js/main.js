@@ -94,6 +94,7 @@ $(function(){
             },
             dataType: 'json',
             success: function (data) {
+                count_1.html('1');
                 $('.count').html(data.products_count);
                 console.info(data);
             }
