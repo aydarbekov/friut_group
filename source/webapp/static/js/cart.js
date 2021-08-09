@@ -53,7 +53,6 @@ $(function(){
                     $('.cart-total-delivery').html(data.total);
                 }else {
                     let summ = parseInt(data.total)+parseInt(delivery);
-                    console.log(summ);
                     $('.cart-total-delivery').html(summ);
                 }
             }
@@ -91,7 +90,6 @@ $(function(){
                     $('.cart-total-delivery').html(data.total);
                 }else {
                     let summ = parseInt(data.total)+parseInt(delivery);
-                    console.log(summ);
                     $('.cart-total-delivery').html(summ);
                 }
             }
@@ -104,7 +102,6 @@ $(function(){
         let url = $(this).attr('data-ajax-target');
         let countDiv = $(this).next('div');
         let newCount = parseInt(countDiv.html()) - 1;
-        console.log(newCount);
         $.ajax({
             url: url,
             type: 'post',
@@ -130,7 +127,6 @@ $(function(){
                     $('.cart-total-delivery').html(data.total);
                 }else {
                     let summ = parseInt(data.total)+parseInt(delivery);
-                    console.log(summ);
                     $('.cart-total-delivery').html(summ);
                 }
             }
@@ -154,7 +150,6 @@ $(function(){
     //         dataType: 'json',
     //         success: function (data) {
     //             $('.count').html(data.products_count);
-    //             console.info(data);
     //         }
     //     });
     // });
