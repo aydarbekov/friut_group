@@ -1,5 +1,6 @@
 import json
 
+import telebot
 from django.contrib import messages
 from django.http import HttpResponse, JsonResponse
 from django.urls import reverse_lazy
@@ -89,7 +90,7 @@ class CartChangeView(View):
 
 class CartView(CreateView):
     model = Order
-    fields = ('first_name', 'last_name', 'phone', 'email', 'address', 'additional_info')
+    fields = ('first_name', 'last_name', 'phone', 'email', 'address', 'additional_info', 'shipping_district')
     template_name = 'cart.html'
     success_url = reverse_lazy('webapp:index')
 
@@ -98,6 +99,7 @@ class CartView(CreateView):
         kwargs['deliveries'] = DeliveryDistricts.objects.all()
         kwargs['cart'] = cart
         kwargs['cart_total'] = cart_total
+
         return super().get_context_data(**kwargs)
 
     def form_valid(self, form):
@@ -106,7 +108,7 @@ class CartView(CreateView):
             return self.form_invalid(form)
         response = super().form_valid(form)
         self._save_order_products()
-        self._clean_cart()
+
         prods = self.object.orderproduct.all()
         sum = 0
         for prod in prods:
@@ -116,7 +118,32 @@ class CartView(CreateView):
                 sum += prod.product.price * prod.amount
         self.object.total_sum = sum
         self.object.save()
-        messages.success(self.request, 'Заказ сохранён!')
+
+        first_name = form.cleaned_data['first_name']
+        last_name = form.cleaned_data['last_name']
+        phone = form.cleaned_data['phone']
+        mail = form.cleaned_data['email']
+        address = form.cleaned_data['address']
+        additional_info = form.cleaned_data['additional_info']
+        shipping_district = form.cleaned_data['shipping_district']
+        bot = telebot.TeleBot('1924264594:AAEjo4O0pZnuPlP6IW91j31zpTfzCnaLllQ')
+        text = f'''
+                !!!Новый заказ!!!
+ФИО - {last_name} {first_name}
+Номер - {phone}
+Почта - {mail}
+Адрес - {address}
+Комментарий - {additional_info}
+Район, цена доставки - {shipping_district}
+'''
+        cart, cart_total = self._prepare_cart()
+        cart_items = ''
+        for item in cart:
+            cart_items += f"\n {item['product']} - {item['qty']}(шт/кг) * {item['price']}р. = {item['total']}"
+        itogo = f'\nИТОГО - {cart_total}'
+        self._clean_cart()
+        bot.send_message(659261315, text + cart_items + itogo)
+        messages.success(self.request, 'Заказ сохранён!\n С вами свяжутся для подтверждения заказа')
         return response
 
     def _prepare_cart(self):
@@ -126,11 +153,13 @@ class CartView(CreateView):
         for pk, qty in totals.items():
             product = Product.objects.get(pk=int(pk))
             if product.discounted_price:
+                price = product.discounted_price
                 total = product.discounted_price * qty
             else:
+                price = product.price
                 total = product.price * qty
             cart_total += total
-            cart.append({'product': product, 'qty': qty, 'total': total})
+            cart.append({'product': product, 'qty': qty, 'price': price, 'total': total})
         return cart, cart_total
 
     def _get_totals(self):

@@ -60,7 +60,7 @@ $(function(){
     });
     $('#id_shipping_district').on('change', function() {
         let cartTotal = parseInt($('.cart-total').html());
-        let sum = parseInt($(this).val());
+        let sum = parseInt($('option:selected', this).attr('price'));
         $('.delivery-value').html(sum);
         $('.cart-total-delivery').html(cartTotal + sum);
     });

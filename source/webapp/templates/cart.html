@@ -112,10 +112,10 @@
                         </tr>
                         <tr>
                             <th class="none-top-border cart-summ-itog-header" scope="row">
-                                <select name="shipping_district" class="form-control" required="" id="id_shipping_district" form="MainForm">
-                                    <option value=0 selected="">Выберите район доставки</option>
+                                <select name="shipping_district" class="form-control" id="id_shipping_district" form="MainForm">
+                                    <option value selected="">Выберите район доставки</option>
                                     {% for delivery in deliveries %}
-                                        <option value={{ delivery.price }}>{{ delivery.district }}</option>
+                                        <option value={{ delivery.pk }} price={{ delivery.price }} >{{ delivery.district }}</option>
                                     {% endfor %}
                                 </select>
                             </th>
@@ -147,7 +147,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Сделать заказ</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>

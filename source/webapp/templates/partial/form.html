@@ -4,7 +4,9 @@
     <p class="text-danger">{{ error }}</p>
 {% endfor %}
 {% for field in form %}
-    <div class="form-group">
-        {% include 'partial/form_field.html' %}
-    </div>
+    {% if field.name != 'shipping_district' %}
+        <div class="form-group">
+            {% include 'partial/form_field.html' %}
+        </div>
+    {% endif %}
 {% endfor %}

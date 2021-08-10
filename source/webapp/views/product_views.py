@@ -5,6 +5,20 @@ from django.views.generic import ListView
 
 from webapp.models import Product, Category
 
+import telebot
+
+bot = telebot.TeleBot('1924264594:AAEjo4O0pZnuPlP6IW91j31zpTfzCnaLllQ')
+# для нового пользователя
+# @bot.message_handler(commands=['start'])
+# def start(message):
+#     print(message.chat.id)
+#     bot.send_message(659261315, 'It works!')
+# bot.polling()
+
+# для отправки
+# bot = telebot.TeleBot('1924264594:AAEjo4O0pZnuPlP6IW91j31zpTfzCnaLllQ')
+# bot.send_message(659261315, 'It works!')
+
 
 @method_decorator(ensure_csrf_cookie, name='dispatch')
 class IndexView(ListView):

@@ -79,10 +79,10 @@ class Image(models.Model):
 class Order(models.Model):
     first_name = models.CharField(max_length=100, verbose_name='Имя')
     last_name = models.CharField(max_length=100, verbose_name='Фамилия')
-    email = models.EmailField(max_length=50, verbose_name='Email')
+    email = models.EmailField(max_length=50, null=True, blank=True, verbose_name='Email')
     phone = models.CharField(max_length=20, verbose_name='Телефон')
     address = models.CharField(max_length=255, null=False, blank=False, verbose_name="Адрес доставки")
-    shipping_district = models.ForeignKey('DeliveryDistricts', on_delete=models.PROTECT, verbose_name="Район доставки", null=True)
+    shipping_district = models.ForeignKey('DeliveryDistricts', on_delete=models.PROTECT, verbose_name="Район доставки", null=True, blank=True, default=None)
     products = models.ManyToManyField(Product, through='OrderProduct', through_fields=('order', 'product'), verbose_name='Товары', related_name='orders')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
