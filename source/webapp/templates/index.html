@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block title %}FrutGroup{% endblock %}
 {% block menu %}
 {% endblock %}
@@ -8,7 +9,6 @@
 {% endblock %}
 {% block content %}
     <div class="container category-navbar">
-
         <div class="horizontal-menu d-flex">
             <a class="to-main-btn" href="/"></a>
             <div class="horizontal-category d-flex justify-content-around align-items-center">
@@ -21,22 +21,12 @@
             </a>
         </div>
     </div>
-    <div class="categories-main-pic d-flex flex-column flex-md-row container mt-3">
-        <div class="vertical-menu-container col-12 col-md-3 me-md-3 mb-2 mb-md-0">
+    <div class="categories-main-pic d-flex flex-row container mt-3">
+        <div class="vertical-menu-container col-md-4 me-md-3 mb-md-0">
             <div class="vertial-menu d-flex flex-column mt-2 mb-2 mt-md-3 mb-md-0">
                 {% for category in ver_categories %}
-                    <a class="categories btn d-none d-md-block" href="{% url 'webapp:category' category.slug %}">{{ category.name }}</a>
+                    <a class="categories btn" href="{% url 'webapp:category' category.slug %}">{{ category.name }}</a>
                 {% endfor %}
-                <a class="categories btn d-md-none" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Все категории
-                </a>
-                <div class="collapse d-md-none" id="collapseExample">
-                    <div class="card card-body">
-                        {% for category in ver_categories %}
-                            <a class="categories btn d-block d-md-none" href="#">{{ category.name }}</a>
-                        {% endfor %}
-                    </div>
-                </div>
             </div>
         </div>
         <div class="main-pic-div ms-md-3">
