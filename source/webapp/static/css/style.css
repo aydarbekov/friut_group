@@ -25,18 +25,18 @@ body{
     background-size: cover;
     position: relative;
 }
-/*.main-header::before {*/
-/*content: '';*/
-/*display: block;*/
-/*width: 100%;*/
-/*height: 100%;*/
-/*position: absolute;*/
-/*left: 0;*/
-/*top: 0;*/
-/*background-color: #452104;*/
-/*opacity: 0.8;*/
-/*z-index: 1;*/
-/*}*/
+.main-header::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #452104;
+    opacity: 0.8;
+    z-index: 1;
+}
 .main-header .left-header-content{
     margin-right: auto;
     color: #F6F6F6;
@@ -599,7 +599,21 @@ footer .catalog{
     background-color: #7EB64B;
     border-color: #7EB64B;
 }
-
+.eco-in-top{
+    background-image: url("../images/logos/eco.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 65px;
+    width: 65px;
+    position: absolute;
+}
+.best-eco{
+    top: 20px;
+}
+footer .catalog-info a{
+    text-decoration: none;
+    color: #452104;
+}
 @media screen and (max-width:576px) {
     .headline{
         height: 26px;

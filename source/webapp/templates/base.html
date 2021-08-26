@@ -23,7 +23,7 @@
 {#<div class="empty-collapse"><i class="fas fa-times"></i></div>#}
 <header>
     <div class="headline">
-        <ul class="d-flex container justify-content-center align-items-center h-100">
+        <ul class="d-flex container  justify-content-center align-items-center h-100">
             <li><a href="#">Доставка и оплата</a></li>
             <li><a href="#">Акции</a></li>
             <li><a href="#">О компании</a></li>
@@ -72,12 +72,14 @@
         <div class="logo-descr"></div>
         <div class="catalog-info d-flex">
             <div class="catalog">
+
+
+
                 <ul>
                     <li class="title">Каталог товаров</li>
-                    <li>Овощи</li>
-                    <li>Фрукты</li>
-                    <li>Зелень и салаты</li>
-                    <li>Сухофрукты</li>
+                    {% for category in hor_categories %}
+                        <li><a class="categories" href="{% url 'webapp:category' category.slug %}">{{ category.name }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="info">
