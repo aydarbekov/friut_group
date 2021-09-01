@@ -267,6 +267,9 @@ footer .catalog{
 .horizontal-menu .categories:hover{
     color: #DA6E14;
 }
+.vertial-menu .categories:hover {
+    color: #DA6E14;
+}
 .horizontal-category{
     height: 48px;
     width: 88%;
