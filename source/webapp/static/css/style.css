@@ -38,9 +38,6 @@ body{
     z-index: 1;
 }
 .main-header .left-header-content{
-    padding: 10px;
-    background-color: #00000094;
-    border-radius: 10px;
     margin-right: auto;
     color: #F6F6F6;
     z-index: 2;
@@ -49,6 +46,11 @@ body{
     font-style: normal;
     line-height: 30px;
     margin-left: 40px;
+}
+.main-header .left-top-header-content{
+    padding: 10px;
+    background-color: #00000094;
+    border-radius: 10px;
 }
 .main-header .left-header-content .telephone{
     padding-left: 30px;
@@ -91,11 +93,13 @@ body{
     transform: translate(-50%, -50%);
 }
 .main-header .right-header-content{
-    padding: 10px 10px 0 10px;
-    background-color: #00000094;
-    border-radius: 10px;
     margin-left: auto;
     z-index: 2;
+}
+.main-header .social-links{
+    padding: 10px;
+    background-color: #00000094;
+    border-radius: 10px;
 }
 .main-header .right-header-content .social-links span{
     color: #DE6C07;
@@ -138,7 +142,7 @@ body{
 .main-header .right-header-content .search{
     position: absolute;
     top: 38px;
-    left: -168px;
+    left: -158px;
 
 }
 .main-header .right-header-content .search-line input{
@@ -716,8 +720,8 @@ footer .catalog-info a{
         width: 140px;
     }
     .main-header .right-header-content .search {
-        left: -50px;
-        bottom: 35px;
+        left: -38px;
+        bottom: 55px;
         top: auto;
     }
     .main-header .right-header-content .search-line button {
@@ -898,5 +902,12 @@ footer .catalog-info a{
     .sub-cat {
         font-size: 12px;
     }
-
+    .main-header .left-top-header-content{
+        padding: 5px 2px 5px 2px;
+        background-color: #00000094;
+        border-radius: 10px;
+    }
+    .main-header .social-links {
+        padding: 5px;
+    }
 }
