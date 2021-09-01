@@ -21,7 +21,7 @@ body{
     height: 236px;
     background-image: url(../images/pics/main-photo3.jpg);
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 0 74%;;
     background-size: cover;
     position: relative;
 }
