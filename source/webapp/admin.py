@@ -16,7 +16,7 @@ class ProductsAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     model = Category
     exclude = ['slug']
-
+    ordering = ('-updated_at',)
 
 class OrderProductInline(admin.TabularInline):
     model = OrderProduct
