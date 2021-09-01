@@ -248,14 +248,14 @@ footer .catalog{
 }
 .horizontal-menu .to-main-btn{
     width: 6%;
-    background-color: #FD0056;
+    background-color: #d93936;
     background-image: url(../images/logos/home-logo.png);
     background-repeat: no-repeat;
     background-position: center;
 }
 .horizontal-menu .cart{
     width: 6%;
-    background-color: #FD0056;
+    background-color: #d93936;
     background-image: url(../images/logos/cart-icon.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -494,7 +494,7 @@ footer .catalog{
 .discount-in-top{
     position: absolute;
     text-align: center;
-    background-color: #f97979;
+    background-color: #d93936;
     width: 90px;
     transform-origin: 50% 196%;
     transform: rotate(45deg);
