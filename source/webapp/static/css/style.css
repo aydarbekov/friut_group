@@ -19,7 +19,7 @@ body{
 }
 .main-header{
     height: 236px;
-    background-image: url(../images/pics/main-photo.png);
+    background-image: url(../images/pics/main-photo3.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -34,10 +34,13 @@ body{
     left: 0;
     top: 0;
     background-color: #452104;
-    opacity: 0.8;
+    opacity: 0.2;
     z-index: 1;
 }
 .main-header .left-header-content{
+    padding: 10px;
+    background-color: #00000094;
+    border-radius: 10px;
     margin-right: auto;
     color: #F6F6F6;
     z-index: 2;
@@ -88,6 +91,9 @@ body{
     transform: translate(-50%, -50%);
 }
 .main-header .right-header-content{
+    padding: 10px 10px 0 10px;
+    background-color: #00000094;
+    border-radius: 10px;
     margin-left: auto;
     z-index: 2;
 }
@@ -132,15 +138,15 @@ body{
 .main-header .right-header-content .search{
     position: absolute;
     top: 38px;
-    left: -179px;
+    left: -168px;
 
 }
 .main-header .right-header-content .search-line input{
     height: 35px;
     width: 300px;
     /*opacity: 1;*/
-    background-color: transparent;
-    border: 2px solid #DE6C07 ;
+    background-color: #00000094;
+    border: none;
     color: white;
     padding-right: 30px;
 }
