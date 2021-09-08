@@ -623,6 +623,9 @@ footer .catalog{
 .best-eco{
     top: 20px;
 }
+.to-center{
+    text-align: center;
+}
 footer .catalog-info a{
     text-decoration: none;
     color: #452104;

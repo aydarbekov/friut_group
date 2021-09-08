@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import ensure_csrf_cookie
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 
 from webapp.models import Product, Category
 
@@ -79,3 +79,7 @@ class SearchView(ListView):
         products = self.request.session.get('products', [])
         context['products_count'] = len(products)
         return context
+
+
+class AboutView(TemplateView):
+    template_name = 'about.html'
