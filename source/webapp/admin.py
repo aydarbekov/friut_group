@@ -13,10 +13,17 @@ class ProductsAdmin(admin.ModelAdmin):
     # exclude = ['slug']
 
 
+class CategoryProductInline(admin.TabularInline):
+    model = Product
+    fields = ('name', 'price')
+    extra = 1
+
 class CategoryAdmin(admin.ModelAdmin):
     model = Category
     exclude = ['slug']
     ordering = ('-updated_at',)
+
+    inlines = (CategoryProductInline,)
 
 class OrderProductInline(admin.TabularInline):
     model = OrderProduct
