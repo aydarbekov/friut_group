@@ -101,6 +101,11 @@ body{
     background-color: #00000094;
     border-radius: 10px;
 }
+.left-top-header-content .social-icons{
+    padding: 10px 35px;
+    /*background-color: #00000094;*/
+    /*border-radius: 10px;*/
+}
 .main-header .right-header-content .social-links span{
     color: #DE6C07;
     font-size: 16px;
@@ -108,26 +113,26 @@ body{
     display: inline-block;
     margin-bottom: 10px;
 }
-.main-header .right-header-content .instagram{
+.main-header .instagram{
     height: 20px;
     width: 20px;
     background-image: url(../images/logos/insta-logo.png);
     background-repeat: no-repeat;
     /*background-position: 0 5px;*/
 }
-.main-header .right-header-content .telegram{
+.main-header .telegram{
     height: 20px;
     width: 20px;
     background-image: url(../images/logos/telegram-logo.png);
     background-repeat: no-repeat;
 }
-.main-header .right-header-content .whatsapp{
+.main-header .whatsapp{
     height: 20px;
     width: 20px;
     background-image: url(../images/logos/whatsapp-logo.png);
     background-repeat: no-repeat;
 }
-.main-header .right-header-content .facebook{
+.main-header .facebook{
     height: 20px;
     width: 20px;
     background-image: url(../images/logos/fb-logo.png);
@@ -142,7 +147,8 @@ body{
 .main-header .right-header-content .search{
     position: absolute;
     top: 38px;
-    left: -158px;
+    /*left: -158px;*/
+    transform: translateX(-100%);
 
 }
 .main-header .right-header-content .search-line input{
@@ -695,22 +701,22 @@ footer .catalog-info a{
         margin-left: 3px;
         margin-right: 3px;
     }
-    .main-header .right-header-content .instagram{
+    .main-header .instagram{
         height: 15px;
         width: 15px;
         background-size: 15px;
     }
-    .main-header .right-header-content .telegram{
+    .main-header .telegram{
         height: 15px;
         width: 15px;
         background-size: 15px;
     }
-    .main-header .right-header-content .whatsapp{
+    .main-header .whatsapp{
         height: 15px;
         width: 15px;
         background-size: 15px;
     }
-    .main-header .right-header-content .facebook{
+    .main-header .facebook{
         height: 15px;
         width: 15px;
         background-size: 15px;
@@ -723,8 +729,8 @@ footer .catalog-info a{
         width: 140px;
     }
     .main-header .right-header-content .search {
-        left: -38px;
-        bottom: 55px;
+        /*left: -38px;*/
+        bottom: 35px;
         top: auto;
     }
     .main-header .right-header-content .search-line button {
